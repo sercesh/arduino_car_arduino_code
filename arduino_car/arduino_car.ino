@@ -1,4 +1,3 @@
-
 #include "EEPROM.h"
 
 #define D1 2          // sol motor yönü
@@ -95,7 +94,7 @@ void loop() {
       F_index++;
     }    
     else if(command == 'e'){                       
-      Control4WD(atoi(L_Data),atoi(R_Data),atoi(H_Data));
+      Control4WD(atoi(L_Data),atoi(R_Data));
       delay(10);
     }
     else if(command == 't'){                       
@@ -104,7 +103,7 @@ void loop() {
     lastTimeCommand = millis();                    // uygulama başladığından beri zamanı tut
   }
   if(millis() >= (lastTimeCommand + autoOFF)){     // gelenle son zaman kontrolü
-    Control4WD(0,0,0);                             // dur aga
+    Control4WD(0,0);                             // dur aga
   }
 }
 
